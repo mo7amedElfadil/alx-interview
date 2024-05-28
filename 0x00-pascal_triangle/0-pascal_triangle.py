@@ -9,12 +9,14 @@ Returns an empty list if n <= 0
 You can assume n will be always an integer
 """
 
+
 def print_triangle(triangle):
     """
     Print the triangle
     """
     for row in triangle:
         print("[{}]".format(",".join([str(x) for x in row])))
+
 
 def pascal_triangle(n) -> list:
     """
@@ -28,11 +30,9 @@ def pascal_triangle(n) -> list:
     for i in range(n):
         row = [1] * (i + 1)
         for j in range(1, i):
-                row[j] = res[i - 1][j - 1] + res[i - 1][j]
+            row[j] = res[i - 1][j - 1] + res[i - 1][j]
         res.append(row)
     return res
-
-
 
 
 if __name__ == "__main__":
