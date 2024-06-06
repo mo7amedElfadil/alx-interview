@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """
 Module for lockboxes challenge
 Determines if all the boxes can be opened given n number of locked boxes.
