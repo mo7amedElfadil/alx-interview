@@ -21,7 +21,6 @@ def canUnlockAll(boxes):
     """
     if not boxes:
         return False
-
     keys = [0]
     for key in keys:
         for box in boxes[key]:
