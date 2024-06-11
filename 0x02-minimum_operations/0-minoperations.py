@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """
 Given a text file with a single character 'H', what is the least number of
 operations are requred to result in exactly n H characters in the file.
