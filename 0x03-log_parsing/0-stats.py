@@ -27,10 +27,10 @@ def print_stats(df: Dict[int, int], size: int) -> None:
 def init_vars() -> Tuple[Dict[int, int], Dict[str, int]]:
     """Initializes the variables to be used in the program.
     """
-    accumulator: Dict[str, int] = {'size': 0, 'count': 0}
-    df: Dict[int, int] = dict.fromkeys([200, 301, 400, 401,
-                                        403, 404, 405, 500],
-                                       0)
+    accumulator = {'size': 0, 'count': 0}
+    df = dict.fromkeys([200, 301, 400, 401,
+                        403, 404, 405, 500],
+                       0)
     return df, accumulator
 
 
@@ -38,12 +38,9 @@ def update_dict(line: str, df: Dict, accumulator: Dict[str, int]) -> None:
     """Updates the dictionary and counts based on the input line.
         Every 10 lines, it prints the statistics.
     """
-    parts: List[str] = line.split()
+    parts = line.split()
     try:
         accumulator['size'] += int(parts[-1])
-    except (IndexError, ValueError):
-        pass
-    try:
         if int(parts[-2]) in df:
             df[int(parts[-2])] += 1
             accumulator['count'] += 1
