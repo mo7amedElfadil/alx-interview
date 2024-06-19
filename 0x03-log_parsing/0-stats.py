@@ -12,7 +12,6 @@
             Format: <status code>: <number>
             Status codes should be printed in ascending order.
 """
-from sys import stdin
 from typing import Dict, List, Tuple
 
 
@@ -42,6 +41,9 @@ def update_dict(line: str, df: Dict, accumulator: Dict[str, int]) -> None:
     parts: List[str] = line.split()
     try:
         accumulator['size'] += int(parts[-1])
+    except (IndexError, ValueError):
+        pass
+    try:
         if int(parts[-2]) in df:
             df[int(parts[-2])] += 1
             accumulator['count'] += 1
@@ -55,6 +57,7 @@ def update_stats() -> None:
     """Reads lines from stdin and updates the statistics accordingly.
         Prints the statistics every 10 lines and on keyboard interruption.
     """
+    from sys import stdin
     df, accumulator = init_vars()
     try:
         for line in stdin:
