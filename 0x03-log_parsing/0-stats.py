@@ -14,10 +14,9 @@ Module 101-stats:
             Status codes should be printed in ascending order.
 """
 from sys import stdin
-from typing import Dict, List, Tuple
 
 
-def print_stats(df: Dict[int, int], size: int) -> None:
+def print_stats(df, size):
     """Prints the statistics from stdin according to the format.
     """
     print("File size: {size}".format(size=size))
@@ -26,21 +25,21 @@ def print_stats(df: Dict[int, int], size: int) -> None:
             print("{k}: {v}".format(k=k, v=v))
 
 
-def init_vars() -> Tuple[Dict[int, int], Dict[str, int]]:
+def init_vars():
     """Initializes the variables to be used in the program.
     """
-    accumulator: Dict[str, int] = {'size': 0, 'count': 0}
-    df: Dict[int, int] = dict.fromkeys([200, 301, 400, 401,
+    accumulator = {'size': 0, 'count': 0}
+    df = dict.fromkeys([200, 301, 400, 401,
                                         403, 404, 405, 500],
                                        0)
     return df, accumulator
 
 
-def update_dict(line: str, df: Dict, accumulator: Dict[str, int]) -> None:
+def update_dict(line, df, accumulator):
     """Updates the dictionary and counts based on the input line.
         Every 10 lines, it prints the statistics.
     """
-    parts: List[str] = line.split()
+    parts = line.split()
     try:
         accumulator['size'] += int(parts[-1])
         if int(parts[-2]) in df:
