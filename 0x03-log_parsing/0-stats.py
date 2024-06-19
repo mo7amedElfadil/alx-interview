@@ -20,10 +20,10 @@ from typing import Dict, List, Tuple
 def print_stats(df: Dict[int, int], size: int) -> None:
     """Prints the statistics from stdin according to the format.
     """
-    print(f"File size: {size}")
+    print("File size: {size}".format(size=size))
     for k, v in df.items():
         if v:
-            print(f"{k}: {v}")
+            print("{k}: {v}".format(k=k, v=v))
 
 
 def init_vars() -> Tuple[Dict[int, int], Dict[str, int]]:
