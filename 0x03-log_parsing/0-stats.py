@@ -1,8 +1,9 @@
 #!/usr/bin/python3
-"""Module 101-stats:
+"""
+Module 101-stats:
     Processes input in the format:
         <IP Address> - [<date>] "GET /projects/260 HTTP/1.1" <status code> \
-                <file size>
+               , defaultdict <file size>
     Every 10 lines and after a keyboard interruption (CTRL + C),
     it prints statistics:
         - Total file size: File size: <total size>
