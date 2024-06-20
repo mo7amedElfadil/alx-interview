@@ -14,9 +14,9 @@ def print_log():
     This function prints the statistics from input read
     """
     print('File size: {}'.format(acc['file_size']))
-    for key in sorted(list(acc['status_code'].keys())):
-        if acc['status_code'][key]:
-            print('{}: {}'.format(key, acc['status_code'][key]))
+    for key, v in acc['status_code'].items():
+        if v:
+            print('{}: {}'.format(key, v))
 
 
 def processer(line):
