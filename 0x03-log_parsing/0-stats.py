@@ -6,8 +6,6 @@ import sys
 from typing import Dict
 
 
-
-
 def print_log(acc: Dict) -> None:
     """
     This function prints the statistics from input read
