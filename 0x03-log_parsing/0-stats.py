@@ -28,11 +28,12 @@ def processer(line):
     line: str
         The processed line
     """
-    size = line.split()[-1]
-    status = line.split()[-2]
-    if int(status) in list(acc['status_code'].keys()):
-        acc['status_code'][int(status)] += 1
-        acc['file_size'] += int(size)
+    parts = line.split()
+    size = int(parts[-1])
+    status = int(parts[-2])
+    if status in acc['status_code'].keys():
+        acc['status_code'][status] += 1
+        acc['file_size'] += size
         return True
     return False
 
@@ -46,8 +47,8 @@ def main():
         for line in sys.stdin:
             if processer(line):
                 count += 1
-            if (count % 10 == 0):
-                print_log()
+                if (count % 10 == 0):
+                    print_log()
         print_log()
     except KeyboardInterrupt:
         print_log()
