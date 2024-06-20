@@ -5,9 +5,7 @@
 import sys
 from typing import Dict
 
-acc = {'file_size': 0,
-       'status_code': {200: 0, 301: 0, 400: 0, 401: 0,
-                       403: 0, 404: 0, 405: 0, 500: 0}}
+
 
 
 def print_log(acc: Dict) -> None:
@@ -54,6 +52,9 @@ def main() -> None:
     The entry point of the app
     """
     count = 0
+    acc = {'file_size': 0,
+       'status_code': {200: 0, 301: 0, 400: 0, 401: 0,
+                       403: 0, 404: 0, 405: 0, 500: 0}}
     try:
         for line in sys.stdin:
             if process_line(line, acc):
