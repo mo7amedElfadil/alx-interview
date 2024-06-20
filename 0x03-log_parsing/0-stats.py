@@ -3,58 +3,66 @@
 0. Log parsing
 """
 import sys
+from typing import Dict
 
 acc = {'file_size': 0,
        'status_code': {200: 0, 301: 0, 400: 0, 401: 0,
                        403: 0, 404: 0, 405: 0, 500: 0}}
 
 
-def print_log():
+def print_log(acc: Dict) -> None:
     """
     This function prints the statistics from input read
     """
     print('File size: {}'.format(acc['file_size']))
-    for key, v in acc['status_code'].items():
-        if v:
-            print('{}: {}'.format(key, v))
+    for key, value in sorted(acc['status_code'].items()):
+        if value:
+            print('{}: {}'.format(key, value))
 
 
-def processer(line):
+def process_line(line: str, acc: Dict) -> bool:
     """
-    This is the main engine which process the lines read
+    Processes a single log line and updates the statistics
 
     Parameters:
     ----------
     line: str
         The processed line
+    acc: Dict
+        The accumulator dictionary to update statistics
+
+    Returns:
+    -------
+    bool
+        True if the line was processed successfully, False otherwise
     """
+    parts = line.split()
     try:
-        parts = line.split()
         size = int(parts[-1])
         status = int(parts[-2])
-        if status in acc['status_code'].keys():
+        if status in acc['status_code']:
             acc['status_code'][status] += 1
             acc['file_size'] += size
             return True
     except (IndexError, ValueError):
-        pass
+        return False
     return False
 
 
-def main():
+def main() -> None:
     """
     The entry point of the app
     """
     count = 0
     try:
         for line in sys.stdin:
-            if processer(line):
+            if process_line(line, acc):
                 count += 1
-                if (count % 10 == 0):
-                    print_log()
-        print_log()
+                if count % 10 == 0:
+                    print_log(acc)
+        print_log(acc)
     except KeyboardInterrupt:
-        print_log()
+        print_log(acc)
 
 
 if __name__ == '__main__':
