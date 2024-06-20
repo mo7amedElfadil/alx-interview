@@ -35,8 +35,8 @@ def process_line(line: str, acc: Dict) -> bool:
     parts = line.split()
     try:
         size = int(parts[-1])
-        status = int(parts[-2])
         acc['file_size'] += size
+        status = int(parts[-2])
         if status in acc['status_code']:
             acc['status_code'][status] += 1
             return True
