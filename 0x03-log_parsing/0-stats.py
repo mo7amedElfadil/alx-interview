@@ -28,13 +28,16 @@ def processer(line):
     line: str
         The processed line
     """
-    parts = line.split()
-    size = int(parts[-1])
-    status = int(parts[-2])
-    if status in acc['status_code'].keys():
-        acc['status_code'][status] += 1
-        acc['file_size'] += size
-        return True
+    try:
+        parts = line.split()
+        size = int(parts[-1])
+        status = int(parts[-2])
+        if status in acc['status_code'].keys():
+            acc['status_code'][status] += 1
+            acc['file_size'] += size
+            return True
+    except (IndexError, ValueError):
+        pass
     return False
 
 
