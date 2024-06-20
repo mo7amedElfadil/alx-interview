@@ -36,9 +36,9 @@ def process_line(line: str, acc: Dict) -> bool:
     try:
         size = int(parts[-1])
         status = int(parts[-2])
+        acc['file_size'] += size
         if status in acc['status_code']:
             acc['status_code'][status] += 1
-            acc['file_size'] += size
             return True
     except (IndexError, ValueError):
         return False
@@ -51,8 +51,8 @@ def main() -> None:
     """
     count = 0
     acc = {'file_size': 0,
-       'status_code': {200: 0, 301: 0, 400: 0, 401: 0,
-                       403: 0, 404: 0, 405: 0, 500: 0}}
+           'status_code': {200: 0, 301: 0, 400: 0, 401: 0,
+                           403: 0, 404: 0, 405: 0, 500: 0}}
     try:
         for line in sys.stdin:
             if process_line(line, acc):
