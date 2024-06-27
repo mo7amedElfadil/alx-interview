@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """Validate UTF-8
     - A valid UTF-8 character can be 1 - 4 bytes long
     - For a 1-byte character, the first bit is a 0, followed by its unicode
