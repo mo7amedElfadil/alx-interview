@@ -8,7 +8,7 @@
 // $ ./100-starwars_characters.js 3
 
 const request = require('request');
-const url = 'https://swapi-api.hbtn.io/api/films/' + process.argv[2];
+const url = 'https://swapi-api.alx-tools.com/api/films/' + process.argv[2];
 
 // Fetch character name
 // Returns a promise
@@ -20,8 +20,7 @@ function fetchCharacter (characterUrl) {
       if (error) reject(error);
       else {
         if (response.statusCode === 200) resolve(JSON.parse(body).name);
-        else reject(Error('Request failed with status code ' +
-                    response.statusCode));
+        else reject(Error('Request failed with status code ' + response.statusCode));
       }
     });
   });
@@ -40,8 +39,7 @@ function requestCharacters (url) {
           const characters = JSON.parse(body).characters;
           resolve(characters);
         } else {
-          reject(Error('Request failed with status code ' +
-                        response.statusCode));
+          reject(Error('Request failed with status code ' + response.statusCode));
         }
       }
     });

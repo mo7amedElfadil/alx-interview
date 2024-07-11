@@ -1,4 +1,6 @@
 # 0x05-nqueens
+The “0x05. N queens” project is a classic problem in computer science and mathematics, known for its application of the backtracking algorithm to place N non-attacking queens on an N×N chessboard. To successfully complete this project, you will need to understand several key concepts and have access to resources that will help you grasp the necessary algorithms and techniques.
+
 
 ## Task Definition
 The N queens puzzle is the challenge of placing N non-attacking queens on an N×N chessboard. Write a program that solves the N queens problem.
@@ -16,3 +18,21 @@ and exit with the status 1
 - One solution per line
 - You don’t have to print the solutions in a specific order
 - You are only allowed to import the sys module
+
+## Usage
+
+```
+python3 0-nqueens.py N
+```
+
+eg.
+
+```
+python3 0-nqueens.py 4
+```
+
+```
+[[0, 1], [1, 3], [2, 0], [3, 2]]
+[[0, 2], [1, 0], [2, 3], [3, 1]]
+```
+
