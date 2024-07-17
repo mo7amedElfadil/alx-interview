@@ -4,10 +4,9 @@
     Do not return anything.
     The matrix must be edited in-place.
 """
-from typing import List
 
 
-def rotate_2d_matrix(matrix: List[List[int]]) -> None:
+def rotate_2d_matrix(matrix) -> None:
     """
     Rotate 2D n x n Matrix 90 degrees clockwise
     """
