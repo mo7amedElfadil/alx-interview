@@ -8,8 +8,6 @@
 def makeChange(coins, total):
     """
         Return: fewest number of coins needed to meet total
-        81 = 25 + 25 + 25 + 5 + 1
-
     """
     if total <= 0:
         return 0
