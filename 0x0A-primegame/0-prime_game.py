@@ -75,8 +75,8 @@ def isWinner(x, nums):
     """
     players = {"Maria": 0, "Ben": 0}
 
-    for n in nums:
-        primes = primeList(n)
+    for i in range(x):
+        primes = primeList(nums[i])
         rounds = len(primes)
 
         if rounds % 2 == 0:
