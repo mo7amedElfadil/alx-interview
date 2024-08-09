@@ -67,7 +67,7 @@ def primeList(n):
     return primes
 
 
-def isWinner(_, nums):
+def isWinner(x, nums):
     """ Determines the winner of the prime game
         x: number of rounds
         nums: array of n
@@ -87,7 +87,7 @@ def isWinner(_, nums):
             players["Maria"] += 1
 
     if players["Maria"] > players["Ben"]:
-        return "Winner: Maria"
+        return "Maria"
     if players["Ben"] > players["Maria"]:
-        return "Winner: Ben"
+        return "Ben"
     return None
