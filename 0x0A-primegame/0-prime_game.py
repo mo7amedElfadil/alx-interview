@@ -80,10 +80,8 @@ def isWinner(x, nums):
         rounds = len(primes)
 
         if rounds % 2 == 0:
-            print("Ben wins")
             players["Ben"] += 1
         else:
-            print("Maria wins")
             players["Maria"] += 1
 
     if players["Maria"] > players["Ben"]:
